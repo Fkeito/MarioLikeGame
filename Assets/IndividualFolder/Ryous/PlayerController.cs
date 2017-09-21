@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Move1(float idou)
     {
          if (isSquat) return;
-        transform.Translate(idou * 0.3f, 0.0F, 0.0F);
+        transform.Translate(0.0f, 0.0f, idou * 0.3f);
     }
   
 
@@ -63,4 +63,31 @@ public class PlayerController : MonoBehaviour
             isGround = false;
         }
     }
+    void Transfotm(string form){
+        switch (form)
+        {
+            case "flower":
+
+                break;
+            case "big":
+
+                break;
+            case "small":
+
+                break;
+        }
+      }
+     void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("enemyup"))
+        {
+            //小ジャン
+        }else if(collision.gameObject.CompareTag("enemydown"))
+        {
+
+        }
+    }
+
+
+
 }
