@@ -17,6 +17,7 @@ public class EnemyN : MonoBehaviour //ノコノコ
         transform.position = StartPos;
         dPos = (EndPos - StartPos) / time;
         elapsedTime = 0;
+
     }
 
     //左右に移動
@@ -44,7 +45,6 @@ public class EnemyN : MonoBehaviour //ノコノコ
             elapsedTime = 0;
         }
     }
-
 
 }
 
