@@ -48,7 +48,7 @@ public class EnemyK : MonoBehaviour //クリボー
     //踏まれて死ぬ
     private void OnTriggerEnter(Collider other)
     {   //Finishタグのオブジェクトは弱点
-        if (this.tag=="Finish" && other.tag == "Player")
+        if (other.tag == "Player")
         {
             Destroy(gameObject);
             Debug.Log("Kuribo DEAD");

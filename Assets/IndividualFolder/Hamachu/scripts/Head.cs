@@ -5,11 +5,12 @@ using UnityEngine;
 public class Head : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
-    {   //Finishタグのオブジェクトは弱点
-        if (this.tag == "Finish" && other.tag == "Player")
+    {
+        if (other.tag == "Player")
         {
-            Destroy(gameObject);
             Debug.Log("Shell");
+            other.GetComponent<Rigidbody>().AddForce(0f, 8f, 0f,ForceMode.Impulse);
+            Destroy(gameObject);
         }
     }
 }
