@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
         Move1(Input.GetAxisRaw("Horizontal"));
         if (Input.GetKeyDown(KeyCode.UpArrow)&&isGround) Jump();
         if (Input.GetKeyDown(KeyCode.DownArrow)) Squat();
-        if (Input.GetKeyUp(KeyCode.DownArrow)) aSquat();
+        if (Input.GetKeyUp(KeyCode.DownArrow)) ASquat();
         //}
         //if (Input.GetKey(KeyCode.Z)) Fire;
        
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y / 2, this.transform.localScale.z);
         isSquat = true;
     }
-    void aSquat()
+    void ASquat()
     {
         this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.y * 2, this.transform.localScale.z);
         isSquat = false;
@@ -49,6 +49,21 @@ public class PlayerController : MonoBehaviour
           if(ファイア)
       }
   }*/
+    void Transfotm(string form)
+    {
+        switch (form)
+        {
+            case "flower":
+
+                break;
+            case "big":
+
+                break;
+            case "small":
+
+                break;
+        }
+    }
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
@@ -63,26 +78,13 @@ public class PlayerController : MonoBehaviour
             isGround = false;
         }
     }
-    void Transfotm(string form){
-        switch (form)
-        {
-            case "flower":
-
-                break;
-            case "big":
-
-                break;
-            case "small":
-
-                break;
-        }
-      }
+   
      void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("enemyup"))
+        if (collision.gameObject.CompareTag("Finish"))
         {
             //小ジャン
-        }else if(collision.gameObject.CompareTag("enemydown"))
+        }else if(collision.gameObject.CompareTag("??"))
         {
 
         }
