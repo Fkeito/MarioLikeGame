@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyN : MonoBehaviour //ノコノコ
-{
+public class mushroom : MonoBehaviour {
 
     public Vector3 StartPos;    //始点
     public Vector3 EndPos;      //終点
@@ -11,15 +10,12 @@ public class EnemyN : MonoBehaviour //ノコノコ
     private Vector3 dPos;       //変化量
     private float elapsedTime;  //経過時間
     private bool flag = true;
-    private bool holdflag;
 
     void Start()
     {
         transform.position = StartPos;
         dPos = (EndPos - StartPos) / time;
         elapsedTime = 0;
-        Debug.Log(transform.childCount);
-
     }
 
     //左右に移動
@@ -46,15 +42,13 @@ public class EnemyN : MonoBehaviour //ノコノコ
             flag = !flag;
             elapsedTime = 0;
         }
+    }
 
-        if (transform.childCount == 0)
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            holdflag = flag;
-            StartPos = transform.position;
-            EndPos = transform.position;
-            elapsedTime = time + 1;
+            Destroy(gameObject);
         }
     }
 }
-
-
